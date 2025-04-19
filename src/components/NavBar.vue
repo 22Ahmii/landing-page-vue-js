@@ -2,8 +2,6 @@
 import { ref } from 'vue'
 
 const isSidebarOpen = ref(false)
-
-// Track which dropdown is open in mobile
 const dropdownStates = ref({})
 
 const toggleDropdown = (name) => {
@@ -31,33 +29,18 @@ const navLinks = [
 <template>
   <header class="header">
     <nav class="nav-container">
-      <!-- Logo + Nav Links -->
       <div class="logo-area">
         <img src="../assets/logoo.svg" alt="logo" class="logo-img" />
 
         <ul class="nav-links">
-          <li
-            v-for="link in navLinks"
-            :key="link.name"
-            class="nav-item"
-            :class="{ 'has-dropdown': link.hasDropdown }"
-          >
+          <li v-for="link in navLinks" :key="link.name" class="nav-item" :class="{ 'has-dropdown': link.hasDropdown }">
             <a :href="link.href">
               {{ link.name }}
-              <svg
-                v-if="link.hasDropdown"
-                xmlns="http://www.w3.org/2000/svg"
-                class="chevron-icon"
-                width="16"
-                height="16"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg v-if="link.hasDropdown" xmlns="http://www.w3.org/2000/svg" class="chevron-icon" width="16"
+                height="16" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.657a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-                  clip-rule="evenodd"
-                />
+                  clip-rule="evenodd" />
               </svg>
             </a>
             <ul v-if="link.hasDropdown" class="dropdown">
@@ -69,13 +52,11 @@ const navLinks = [
         </ul>
       </div>
 
-      <!-- Desktop Auth Buttons -->
       <div class="auth desktop-only">
         <a href="#" class="login-link">Login</a>
         <a href="#" class="btn-primary">Start for free</a>
       </div>
 
-      <!-- Mobile Menu Button -->
       <button class="menu-btn mobile-only" @click="isSidebarOpen = true">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
           <path d="M4 6h16M4 12h16M4 18h16" stroke="#000" stroke-width="2" stroke-linecap="round" />
@@ -83,7 +64,6 @@ const navLinks = [
       </button>
     </nav>
 
-    <!-- Sidebar for Mobile -->
     <div class="sidebar" v-if="isSidebarOpen">
       <button class="close-btn" @click="isSidebarOpen = false">×</button>
       <ul class="sidebar-links">
@@ -114,10 +94,12 @@ const navLinks = [
 * {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 ul {
   list-style: none;
   padding: 0;
@@ -236,10 +218,12 @@ ul {
 .desktop-only {
   display: none;
 }
+
 @media (min-width: 1024px) {
   .desktop-only {
     display: flex;
   }
+
   .mobile-only {
     display: none;
   }
@@ -272,6 +256,7 @@ ul {
 .sidebar-links li {
   margin-top: 1rem;
 }
+
 .sidebar-link {
   display: flex;
   justify-content: space-between;
@@ -280,10 +265,12 @@ ul {
   padding: 0.5rem 0;
   font-weight: 500;
 }
+
 .dropdown-toggle-icon {
   font-size: 1rem;
   margin-left: 8px;
 }
+
 .mobile-dropdown {
   margin-left: 1rem;
   margin-top: 0.25rem;

@@ -1,7 +1,5 @@
-<!-- HeroSection.vue -->
 <template>
   <section class="hero">
-    <!-- headline block -->
     <div class="copy">
       <h1>Create, inspect, and apply<br />synthetic surveillance broadly.</h1>
       <p class="sub">Start with a stunning homepage. Stay motivated without hurting your pocket.</p>
@@ -9,9 +7,9 @@
         <button class="cta">Start for free</button>
         <a href="#" class="demo">Want to talk or get a live demo? <span>Get in touch →</span></a>
         <div class="image-stack">
-    <img src="../assets/frame1.svg" alt="logo" class="base-img" />
-    <img src="../assets/frame3.svg" alt="logo" class="overlay-img" />
-  </div>
+          <img src="../assets/frame1.svg" alt="logo" class="base-img" />
+          <img src="../assets/frame3.svg" alt="logo" class="overlay-img" />
+        </div>
       </div>
     </div>
   </section>
@@ -23,7 +21,7 @@
 
 <style scoped>
 .image-stack {
-  margin-top:-320px;
+  margin-top: -320px;
   position: relative;
   width: fit-content;
 }
@@ -38,12 +36,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Match base-img */
+  width: 100%;
   height: auto;
-  transform: translate(10px, 10px); /* Default desktop offset */
+  transform: translate(10px, 10px);
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
   .image-stack {
     margin-top: 1rem;
@@ -57,18 +54,18 @@
   }
 
   .overlay-img {
-    transform: translate(5px, 5px); /* Slight shift for mobile */
+    transform: translate(5px, 5px);
+    /* Slight shift for mobile */
   }
 }
 
-/* layout */
 .hero {
   position: relative;
   overflow: hidden;
   padding: 6rem 1rem 10rem;
   text-align: center;
   background: #fff;
-  isolation: isolate;     
+  isolation: isolate;
 }
 
 .copy h1 {
@@ -101,16 +98,21 @@
   cursor: pointer;
   transition: transform .2s ease;
 }
-.cta:hover { transform: translateY(-2px); }
+
+.cta:hover {
+  transform: translateY(-2px);
+}
 
 .demo {
   font-size: .9rem;
   color: #444;
   text-decoration: none;
 }
-.demo span { font-weight: 600; }
 
-/* svg rays */
+.demo span {
+  font-weight: 600;
+}
+
 .rays {
   position: absolute;
   bottom: -2rem;
@@ -125,7 +127,7 @@
 .center-icon {
   position: absolute;
   left: 50%;
-  bottom: calc(4rem + 64px);      /* just above the bottom edge */
+  bottom: calc(4rem + 64px);
   transform: translateX(-50%);
   width: 64px;
   height: 64px;
@@ -136,9 +138,12 @@
   justify-content: center;
   z-index: 2;
 }
-.center-icon img { width: 50%; height: 50%; }
 
-/* peripheral app icons */
+.center-icon img {
+  width: 50%;
+  height: 50%;
+}
+
 .app-icon {
   position: absolute;
   width: 48px;
@@ -147,7 +152,12 @@
   display: grid;
   place-items: center;
   background: white;
-  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
 }
-.app-icon img { width: 80%; height: 80%; object-fit: cover; }
+
+.app-icon img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
 </style>
